@@ -1,0 +1,38 @@
+{% extends "base.html" %} 
+{% load static %}
+
+{% block title %} 
+Home
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "articles/style/home.css" %}"
+{% endblock %}
+
+
+{% block content %}
+<section id="main-section">
+  <h2>List of Articles</h2>
+  
+  <ul>
+      {% for article in articles %}
+      <li>
+          <article class="">
+               <div class="">
+                    <p>{{ article.article_name}}</p>
+                    <p>{{ article.date_born}}</p>
+                    <p>{{ article.date_died}}</p>
+                    <p>{{ article.nationality}}</p>
+                    <p>{{ article.know_for}}</p>
+                    <p>{{ article.notable_work}}</p>
+                    <p>{{ article.about}}</p>
+               </div>
+     
+          </article>
+      </li>
+    
+      {% endfor %}
+  </ul>
+</section>
+
+{% endblock %}
