@@ -13,26 +13,31 @@ Home
 {% block content %}
 <section id="main-section">
   <h2>List of Articles</h2>
-  
-  <ul>
+  <div class="container">
       {% for article in articles %}
-      <li>
-          <article class="">
-               <div class="">
-                    <p>{{ article.article_name}}</p>
-                    <p>{{ article.date_born}}</p>
-                    <p>{{ article.date_died}}</p>
-                    <p>{{ article.nationality}}</p>
-                    <p>{{ article.know_for}}</p>
-                    <p>{{ article.notable_work}}</p>
-                    <p>{{ article.about}}</p>
-               </div>
-     
-          </article>
-      </li>
+      
+
+      <div class="row article-container">
+              <a class="article-data" href="">
+          
+             <article class="article-row">
+                    <div class="">{{ article.article_name}}</div>
+                    <div class="">{{ article.date_born}}</div>
+                    <div class="">{{ article.date_died}}</div>
+                    <div class="">{{ article.nationality}}</div>
+                    <div class="">{{ article.know_for}}</div>
+                    <div class="">{{ article.notable_work}}</div>
+                    <div class="">{{ article.about}}</div> 
+            </article>
+               </a> 
     
+      </div> 
+
       {% endfor %}
-  </ul>
+
+  </div>
+
+
 </section>
 
 {% endblock %}
