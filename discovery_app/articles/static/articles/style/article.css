@@ -2,36 +2,15 @@ body {
     background-color: #e7e7e7;
 }
 
-#main-navigation {
-    background-color: #e62cd6;
-    box-shadow: 0 2px 8px rgba(219, 68, 194, 0.25);
-}
-
-h6 {
+.form-heading {
     color: dodgerblue;
-}
-
-main {
-    width: 90%;
-    max-width: 90rem;
-    margin: 2rem auto;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-}
-
-.tag {
-    background-color: white;
-    color: #390281;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
+    text-align: center;
 }
 
 #article-form {
     margin: 2rem auto;
     width: 90%;
-    max-width: 40rem;
+    max-width: 80rem;
     border-radius: 12px;
     background-color: white;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
@@ -138,4 +117,23 @@ main {
 
 #articles h2 {
     color: #464646;
+}
+
+
+/* from Delete Form */
+
+#delete-form {
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 50rem;
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    padding: 0.5rem;
+    height: 20rem;
+}
+
+.article-name {
+    font-size: 2rem;
+    color: #d6000b;
 }

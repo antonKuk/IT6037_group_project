@@ -10,8 +10,6 @@ class ArticleForm(forms.ModelForm):
         model = Articles
         # fields = '__all__'
         # # field_classes = {'slug': slugify(field="article_name"),}
-
-        
         exclude = ["slug"]
         labels = {
           "article_name": "article name",

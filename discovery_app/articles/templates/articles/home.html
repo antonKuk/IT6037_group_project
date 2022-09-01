@@ -6,19 +6,20 @@ Home
 {% endblock %} 
 
 {% block css_files %}
+
   <link rel="stylesheet" href="{% static "articles/style/home.css" %}"
 {% endblock %}
 
 
 {% block content %}
+<section></section>
+
 <section id="main-section">
   <h2>List of Articles</h2>
   <div class="container">
       {% for article in articles %}
       
-
-      <div class="row article-container">
-              <a class="article-data" href="">
+      <div class=" article-container">
           
              <article class="article-row">
                     <div class="">{{ article.article_name}}</div>
@@ -29,15 +30,17 @@ Home
                     <div class="">{{ article.notable_work}}</div>
                     <div class="">{{ article.about}}</div> 
             </article>
-               </a> 
-    
-      </div> 
+
+            <div class="form-group mt-3">
+                <a class="article-data btn btn-outline-danger " href="{% url "delete-page" article.slug %}">Delete</a> 
+                <a class="article-data btn btn-outline-info" href="{% url "update-page" article.slug %}">Update</a>
+            </div>
+              
+       </div> 
 
       {% endfor %}
 
   </div>
-
-
 </section>
 
 {% endblock %}

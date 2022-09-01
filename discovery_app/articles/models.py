@@ -2,6 +2,7 @@ from django.utils.text import slugify
 from pickle import TRUE
 from django.db import models
 from django.core.validators import MinLengthValidator
+from django.urls import reverse
 
 '''Article Model'''
 
@@ -19,9 +20,13 @@ class Articles(models.Model):
     def __str__(self):
         return self.article_name
 
+    def get_absolute_url(self):
+        return reverse("home-page")
+        
+
     def save(self, *args, **kwargs):
             self.slug = slugify(self.article_name)
-            super().save(*args, **kwargs)
+            super(Articles,self).save(*args, **kwargs)
 
         
 
