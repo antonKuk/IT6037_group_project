@@ -1,0 +1,38 @@
+  
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %} 
+    Update
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "articles/style/article.css" %}">
+{% endblock %}
+
+{% block content %}
+
+  <section id="article-form" class="container">
+
+    <h6>Update Article</h6>
+          <div class="form-group">
+                 <a class="btn btn-outline-info" href="/articles/article-delete.html">Delete
+                 </a>
+                 <a class="btn btn-outline-info" href="/">Cancel
+                 </a>
+        </div>
+    {% comment %} <form class="form-control" action="" method="POST">
+      {% csrf_token %}
+      {% for form_field in articles %}
+        <div class="form-group {% if form_field.errors %}invalid{% endif %}">
+              {{ form_field.label_tag }}
+              {{ form_field }}
+              {{ form_field.errors }}
+        </div>
+      {% endfor %}
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit"> Update</button>
+        </div>
+    </form>  {% endcomment %}
+  </section>
+
+  {% endblock %}

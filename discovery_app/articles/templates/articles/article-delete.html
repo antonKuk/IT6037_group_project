@@ -1,0 +1,38 @@
+  
+{% extends "base.html" %} 
+{% load static %} 
+{% block title %} 
+    Delete
+{% endblock %} 
+
+{% block css_files %}
+  <link rel="stylesheet" href="{% static "articles/style/article.css" %}">
+{% endblock %}
+
+{% block content %}
+
+  <section id="delete-form" class="container">
+
+    <h4 class="form-heading">Delete Article</h4>
+
+    <form class="form-control" action="" method="POST">
+      {% csrf_token %}{{form.as_p}}
+      <div>
+        <h5 class="m-5">
+          Are you sure you want to delete <span class="article-name text-capitalize">{{object.article_name}}?</span>
+        </h5>
+      </div>
+
+      <div class="form-row mt-5 ">
+            <div class="form-group">
+               <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>   
+            </div>
+            <div class="form-group ml-5">
+              <a class="btn btn-outline-info" href="/"> Cancel</a>   
+           </div>
+      </div>
+    </form>
+
+  </section>
+
+  {% endblock %}
