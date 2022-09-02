@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView
-from .models import Articles
+from .models import Article
 from .article_form import ArticleForm
 
 
@@ -20,7 +20,7 @@ from .article_form import ArticleForm
 
 class HomePageView(ListView):
     template_name = "articles/home.html"
-    model = Articles
+    model = Article
     # ordering = ["-date"]
     context_object_name = "articles"
 
@@ -30,7 +30,7 @@ class HomePageView(ListView):
         return data
 
 class DetailArticlelView(DetailView):
-    model = Articles
+    model = Article
     template_name="articles/article-detail.html"
     form_class = ArticleForm
     context_object_name="articles"
@@ -71,11 +71,11 @@ class CreateArticleView(CreateView):
 class UpdateArticleView(UpdateView):
     template_name="articles/article-update.html"
     form_class = ArticleForm
-    queryset=Articles.objects.all()
+    queryset=Article.objects.all()
 
     def get_object(self):
       slug=self.kwargs.get("slug")
-      return get_object_or_404(Articles,slug=slug)
+      return get_object_or_404(Article,slug=slug)
 
     def form_valid(self,form):
       return super().form_valid(form)
@@ -88,7 +88,7 @@ class DeleteArticleView(DeleteView):
 
     def get_object(self):
       slug=self.kwargs.get("slug")
-      return get_object_or_404(Articles,slug=slug)
+      return get_object_or_404(Article,slug=slug)
 
     # def test_func(self):
     #   article=self.get_object()

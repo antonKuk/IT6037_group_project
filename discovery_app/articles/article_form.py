@@ -1,13 +1,13 @@
 
 from django import forms
 from django.utils.text import slugify
-from .models import Articles
+from .models import Article
 
 ''' Comment Form'''
 
 class ArticleForm(forms.ModelForm):
     class Meta:
-        model = Articles
+        model = Article
         # fields = '__all__'
         # # field_classes = {'slug': slugify(field="article_name"),}
         exclude = ["slug"]
