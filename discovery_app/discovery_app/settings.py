@@ -89,7 +89,7 @@ DATABASES = {
             'NAME': 'Discovery_Database',
             'ENFORCE_SCHEMA': False,
             'CLIENT': {
-                'host': 'mongodb+srv://ztur211:P%40ss0710@cluster0.lbk8yrn.mongodb.net/test',
+                'host': 'mongodb+srv://<username>:<password>@cluster0.lbk8yrn.mongodb.net/test',
             }  
         }
 }
