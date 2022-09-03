@@ -5,9 +5,6 @@ from .models import Articles
 
 
 class ArticlesAdmin(admin.ModelAdmin):
-#     list_filter = ("article_name","known_for" "born", "died",)
-    list_display = ("article_name","slug","nationality","known_for","date_born","date_died","notable_work","about")
-    prepopulated_fields = {"slug": ("article_name",)}
-
+    list_display = ("name","nationality","known_for","born","died","notable_work","about","category","type","dimensions","location","medium","designed_by","developer")
 
 admin.site.register(Articles,ArticlesAdmin)

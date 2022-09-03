@@ -87,10 +87,10 @@ DATABASES = {
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'Discovery_Database',
-            # 'ENFORCE_SCHEMA': False,
-            # 'CLIENT': {
-            #     'host': 'mongodb+srv://<username>:<password>@<atlas cluster>/<myFirstDatabase>?retryWrites=true&w=majority'
-            # }  
+            'ENFORCE_SCHEMA': False,
+            'CLIENT': {
+                'host': 'mongodb+srv://ztur211:P%40ss0710@cluster0.lbk8yrn.mongodb.net/test',
+            }  
         }
 }
 
@@ -130,6 +130,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -7,6 +7,7 @@ Home
 
 {% block css_files %}
   <link rel="stylesheet" href="{% static "articles/style/home.css" %}"
+  <link rel="stylesheet" href="{% static 'flags/sprite.css' %}">
 {% endblock %}
 
 
@@ -21,13 +22,27 @@ Home
               <a class="article-data" href="">
           
              <article class="article-row">
-                    <div class="">{{ article.article_name}}</div>
-                    <div class="">{{ article.date_born}}</div>
-                    <div class="">{{ article.date_died}}</div>
-                    <div class="">{{ article.nationality}}</div>
-                    <div class="">{{ article.know_for}}</div>
-                    <div class="">{{ article.notable_work}}</div>
-                    <div class="">{{ article.about}}</div> 
+                  {% if article.article_name|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.article_name }}</div>
+                  {% endif %}
+                  {% if article.date_born|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.date_born }}</div>
+                  {% endif %}
+                  {% if article.date_died|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.date_died }}</div>
+                  {% endif %}
+                  {% if article.nationality|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.nationality }}</div>
+                  {% endif %}
+                  {% if article.know_for|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.know_for }}</div>
+                  {% endif %}
+                  {% if article.notable_work|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.notable_work }}</div>
+                  {% endif %}
+                  {% if article.about|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.about }}</div> 
+                  {% endif %}
             </article>
                </a> 
     
