@@ -12,6 +12,7 @@ Home
 
 
 {% block content %}
+{%if user.is_authenticated %}
 <section id="main-section">
   <h2>List of Articles</h2>
   <div class="container">
@@ -54,5 +55,7 @@ Home
 
 
 </section>
-
+{% else %}
+{% endif %}
 {% endblock %}
+

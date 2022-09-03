@@ -1,10 +1,15 @@
 from django.contrib import admin
-from .models import Articles
+from .models import Article,Category,Type
 
 # Register your models here
 
 
-class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ("name","nationality","known_for","born","died","notable_work","about","category","type","dimensions","location","medium","designed_by","developer")
+class ArticleAdmin(admin.ModelAdmin):
+#     list_filter = ("article_name","known_for" "born", "died",)
+    list_display = ("article_name","category","type","slug","nationality","known_for","date_born","date_died","notable_work","about")
+    prepopulated_fields = {"slug": ("article_name",)}
 
-admin.site.register(Articles,ArticlesAdmin)
+
+admin.site.register(Article,ArticleAdmin)
+admin.site.register(Category)
+admin.site.register(Type)
