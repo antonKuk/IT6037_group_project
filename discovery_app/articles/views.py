@@ -15,9 +15,6 @@ from .article_form import ArticleForm
 
 # Create your views here.
 
-# def home(request):
-#     return HttpResponse("Hello, world. You're at the polls index.")
-
 class HomePageView(ListView):
     template_name = "articles/home.html"
     model = Article

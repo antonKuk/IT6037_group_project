@@ -45,14 +45,14 @@ class Type(models.Model):
 
 class Article(models.Model):
     slug = models.SlugField(unique=True, db_index=True)
-    article_name = models.CharField(max_length=150)
+    name = models.CharField(max_length=150)
     designed_by = models.CharField(max_length=150, blank=True)
     developer = models.CharField(max_length=150, blank=True)
     dimensions = models.CharField(max_length=40, blank=True)
     about = models.TextField(validators=[MinLengthValidator(10)])
 #     image = models.ImageField(upload_to="posts", null=True)
-    date_born = models.DateField(blank=True)
-    date_died = models.DateField(blank=True)
+    born = models.DateField(blank=True)
+    died = models.DateField(blank=True)
     nationality = models.CharField(max_length=150, blank=True)
     known_for = models.CharField(max_length=255, blank=True)
     notable_work = models.CharField(max_length=255, blank=True)

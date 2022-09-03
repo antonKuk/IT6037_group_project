@@ -18,32 +18,63 @@ Home
   <div class="container">
       {% for article in articles %}
       
-
       <div class="row article-container">
               <a class="article-data" href="">
           
              <article class="article-row">
+                  {% if article.slug|stringformat:'s' != 'None' %}
+                    <div class="">{{ article.slug }}</div>
+                  {% endif %}
+                  {% if article.developer|stringformat:'s' != 'None' %}
+                    <div class="">Developer: {{ article.developer }}</div>
+                  {% endif %}
+                  {% if article.designed_by|stringformat:'s' != 'None' %}
+                    <div class="">Designed by: {{ article.designed_by }}</div> 
+                  {% endif %}
+                  {% if article.dimensions|stringformat:'s' != 'None' %}
+                    <div class="">Dimensions: {{ article.dimensions }}</div>
+                  {% endif %}
+                  {% if article.name|stringformat:'s' != 'None' %}
+                    <div class="">Name: {{ article.name }}</div>
+                  {% endif %}
                   {% if article.article_name|stringformat:'s' != 'None' %}
-                    <div class="">{{ article.article_name }}</div>
+                    <div class="">Article Name: {{ article.article_name }}</div>
                   {% endif %}
-                  {% if article.date_born|stringformat:'s' != 'None' %}
-                    <div class="">{{ article.date_born }}</div>
+                  {% if article.born|stringformat:'s' != 'None' %}
+                  {% if article.died|stringformat:'s' != 'None' %}
+                    <div class="">Lived from {{ article.born }} to {{ article.died }}</div>
+                  {% else %}
+                    <div class="">Born in {{ article.born }}</div>
                   {% endif %}
-                  {% if article.date_died|stringformat:'s' != 'None' %}
-                    <div class="">{{ article.date_died }}</div>
                   {% endif %}
                   {% if article.nationality|stringformat:'s' != 'None' %}
-                    <div class="">{{ article.nationality }}</div>
+                    <div class="">Nationality: {{ article.nationality }}</div>
                   {% endif %}
-                  {% if article.know_for|stringformat:'s' != 'None' %}
-                    <div class="">{{ article.know_for }}</div>
+                  {% if article.known_for|stringformat:'s' != 'None' %}
+                    <div class="">Known for: {{ article.known_for }}</div>
                   {% endif %}
                   {% if article.notable_work|stringformat:'s' != 'None' %}
-                    <div class="">{{ article.notable_work }}</div>
+                    <div class="">Notable work: {{ article.notable_work }}</div>
                   {% endif %}
                   {% if article.about|stringformat:'s' != 'None' %}
-                    <div class="">{{ article.about }}</div> 
+                    <div class="">About: {{ article.about }}</div> 
                   {% endif %}
+                  {% if article.location|stringformat:'s' != 'None' %}
+                    <div class="">Location: {{ article.location }}</div> 
+                  {% endif %}
+                  {% if article.medium|stringformat:'s' != 'None' %}
+                    <div class="">Medium: {{ article.medium }}</div> 
+                  {% endif %}
+                  {% if article.year|stringformat:'s' != 'None' %}
+                    <div class="">Year: {{ article.year }}</div> 
+                  {% endif %}
+                  {% if article.category|stringformat:'s' != 'None' %}
+                    <div class="">Category: {{ article.category }}</div> 
+                  {% endif %}
+                  {% if article.type|stringformat:'s' != 'None' %}
+                    <div class="">Type: {{ article.type }}</div> 
+                  {% endif %}
+                  
             </article>
                </a> 
     
