@@ -44,6 +44,7 @@
         li {
             list-style-type: none;
         }
+        
 
 
     </style>
@@ -150,6 +151,17 @@
         <!-- Core theme JS-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script>window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"><\/script>')</script><script src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <script>window.jQuery || document.write('<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"><\/script>')</script>
+        <script src="https://cdn.usebootstrap.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js">
+        </script>
+        {%if user.is_authenticated %}
+        {% else %}
+        <script type="text/javascript">
+            $(window).on('load',function(){
+                $('#login-modal').modal('show');
+            });
+        </script>
+        {%endif%}
     </body>
 </html>
