@@ -17,6 +17,17 @@ from .article_form import ArticleForm
 
 # def home(request):
 #     return HttpResponse("Hello, world. You're at the polls index.")
+# class SearchResultsView(ListView):
+#     model =  Article
+#     template_name = '/search_results.html'
+
+#     def get_queryset(self): # new
+#         query = self.request.GET.get("q")
+#         object_list = Arcicle.objects.filter(
+#             Q(title__icontains=query)
+#         )
+#         return object_list
+
 
 class HomePageView(ListView):
     template_name = "articles/home.html"

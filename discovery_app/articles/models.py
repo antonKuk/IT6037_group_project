@@ -73,8 +73,3 @@ class Article(models.Model):
     def save(self, *args, **kwargs):
             self.slug = slugify(self.article_name)
             super(Article,self).save(*args, **kwargs)
-            
-        
-
-        
-
