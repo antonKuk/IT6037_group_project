@@ -50,7 +50,7 @@ class Article(models.Model):
     developer = models.CharField(max_length=150, blank=True)
     dimensions = models.CharField(max_length=40, blank=True)
     about = models.TextField(validators=[MinLengthValidator(10)])
-#     image = models.ImageField(upload_to="posts", null=True)
+    image = models.ImageField(upload_to='images/', null=True, blank=True, default='Null')
     born = models.DateField(blank=True)
     died = models.DateField(blank=True)
     nationality = models.CharField(max_length=150, blank=True)

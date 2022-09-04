@@ -30,9 +30,8 @@ Home
                     <dd class="col-sm-6">{{ article.designed_by }}</dd>
                   {% endif %}
                   {% if article.developer|stringformat:'s' != 'None' %}
-                    <div><dt class="col-sm-3">Developer</dt>
-                      <dd class="col-sm-9">{{ article.developer }}</dd>
-                    </div>
+                    <dt class="col-sm-3">Developer</dt>
+                    <dd class="col-sm-9">{{ article.developer }}</dd>
                   {% endif %}
                   {% if article.article_name|stringformat:'s' != 'None' %}
                     <dt class="col-sm-3"></dt>
