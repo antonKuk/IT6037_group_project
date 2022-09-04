@@ -1,4 +1,3 @@
-
 from django.urls import path
 from .views import CreateArticleView
 from . import views
@@ -11,7 +10,4 @@ urlpatterns = [
     path("articles/<slug:slug>",views.DetailArticlelView.as_view(),name="detail-page"),
     path("articles/<slug:slug>/update/",views.UpdateArticleView.as_view(),name="update-page"),
     path("articles/<slug:slug>/delete/",views.DeleteArticleView.as_view(),name="delete-page"),
-
-
-
-] 
+]

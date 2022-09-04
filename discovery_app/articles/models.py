@@ -6,42 +6,33 @@ from django.urls import reverse
 
 '''Article Model'''
 
-# class Articles(models.Model):
-#     slug = models.SlugField(unique=True, db_index=True,null=True)
-#     article_name = models.CharField(max_length=150)
-#     about = models.TextField(validators=[MinLengthValidator(10)])
+CATEGORY_LIST = [
+    ('', 'Choose...'),
+    ('Arts', 'Arts'),
+    ('Mathematics', 'Mathematics'),
+    ('Technology', 'Technology'),
+]
 
-#     date_born = models.DateField()
-#     date_died = models.DateField()
-#     nationality = models.CharField(max_length=150)
-#     known_for = models.CharField(max_length=255)
-#     notable_work =models.CharField(max_length=255)
-
-#     def __str__(self):
-#         return self.article_name
-
-#     def get_absolute_url(self):
-#         return reverse("home-page")
-        
-
-#     def save(self, *args, **kwargs):
-#             self.slug = slugify(self.article_name)
-#             super(Articles,self).save(*args, **kwargs)
-
+TYPE_LIST = [
+    ('', 'Choose...'),
+    ('Algorithm', 'Algorithm'),
+    ('Biography', 'Biography'),
+    ('Painting', 'Painting'),
+    ('Programming Language', 'Programming Language'),
+    ('Theorem', 'Theorem'),
+]
 
 class Category(models.Model):
-    category_name=models.CharField(max_length=150) 
+    category_name=models.CharField(max_length=150, choices=CATEGORY_LIST, default='Choose...')
 
     def __str__(self):
-        return self.category_name      
-
+        return self.category_name
 
 class Type(models.Model):
-    type_name=models.CharField(max_length=150)
+    type_name=models.CharField(max_length=150, choices=TYPE_LIST, default='Choose...')
 
     def __str__(self):
-        return self.type_name  
-
+        return self.type_name
 
 class Article(models.Model):
     slug = models.SlugField(unique=True, db_index=True)
@@ -65,15 +56,11 @@ class Article(models.Model):
         Type, on_delete=models.SET_NULL, null=True, related_name="type")
 
     def __str__(self):
-        return self.article_name 
+        return self.name
 
     def get_absolute_url(self):
         return reverse("home-page")
         
     def save(self, *args, **kwargs):
-            self.slug = slugify(self.article_name)
+            self.slug = slugify(self.name)
             super(Article,self).save(*args, **kwargs)
-            
-        
-
-        

@@ -9,10 +9,6 @@ from django.views.generic import ListView,DetailView,DeleteView,CreateView,Updat
 from .models import Article
 from .article_form import ArticleForm
 
-
-
-
-
 # Create your views here.
 
 class HomePageView(ListView):
@@ -61,9 +57,7 @@ class CreateArticleView(CreateView):
         context = {
           "article_form": article_form,
         }
-        return render(request, "articles/article-create.html", context)  
-
-
+        return render(request, "articles/article-create.html", context)
 
 class UpdateArticleView(UpdateView):
     template_name="articles/article-update.html"
@@ -89,4 +83,3 @@ class DeleteArticleView(DeleteView):
 
     # def test_func(self):
     #   article=self.get_object()
- 
