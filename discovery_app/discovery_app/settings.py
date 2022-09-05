@@ -83,7 +83,11 @@ DATABASES = {
             'NAME': 'Discovery_Database',
             'ENFORCE_SCHEMA': False,
             'CLIENT': {
+<<<<<<< Updated upstream
                 'host': 'mongodb+srv://<username>:<password>@cluster0.lbk8yrn.mongodb.net/test',
+=======
+                'host': 'mongodb+srv://ztur211:P%40ss0710@cluster0.lbk8yrn.mongodb.net/test'
+>>>>>>> Stashed changes
             }  
         }
 }
@@ -133,13 +137,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
+<<<<<<< Updated upstream
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #
 LOGIN_REDIRECT_URL = "/"
+=======
+# LOGIN_REDIRECT_URL = "/"
+>>>>>>> Stashed changes
 LOGIN_URL="login"
 
 #
