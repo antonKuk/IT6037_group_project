@@ -18,3 +18,5 @@ git checkout <commit_code>
 git log --oneline --all --graph --decorate  $(git reflog | awk '{print $1}') #this console command will show you all commits
 #And if you want to make commits while you're there, go ahead and make a new branch while you're at it:
 git checkout -b <new_branch_name> <commit_code> 
+
+https://docs.djangoproject.com/en/dev/ref/models/fields/ official docs about django fields

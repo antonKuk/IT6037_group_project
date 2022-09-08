@@ -5,3 +5,4 @@ ENV/
 *.pot
 *.pyc
 __pycache__/
+articles/migrations/
