@@ -1,0 +1,21 @@
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="post">{% csrf_token %}
+    <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+        {{ form|crispy }}
+    </div>
+    <div class="modal-footer justify-content-between">
+        <div class="form-check clearfix">
+            <input type="checkbox" class="form-check-input" id="rememberMe" />
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+        </div>
+        <div class="d-block clearfix">
+            <input class="btn btn-warning" type="submit" value="Login">
+        </div>
+    </div>
+</form>
+{% endblock content %}
