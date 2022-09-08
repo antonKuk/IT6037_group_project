@@ -41,7 +41,7 @@ class HomePageView(ListView):
         data = queryset[:20]
         return data
 
-class DetailArticlelView(DetailView):
+class DetailArticlelView(LoginRequiredMixin,DetailView):
     model = Article
     template_name="articles/article-detail.html"
     form_class = ArticleForm
@@ -56,7 +56,7 @@ class DetailArticlelView(DetailView):
     #   print(form.cleaned_data)
     #   return super().form_valid(form)
 
-class CreateArticleView(CreateView):
+class CreateArticleView(LoginRequiredMixin,CreateView):
 
     def get(self, request):
         context = {
@@ -80,7 +80,7 @@ class CreateArticleView(CreateView):
 
 
 
-class UpdateArticleView(UpdateView):
+class UpdateArticleView( LoginRequiredMixin,UpdateView):
     template_name="articles/article-update.html"
     form_class = ArticleForm
     queryset=Article.objects.all()
@@ -93,7 +93,7 @@ class UpdateArticleView(UpdateView):
       return super().form_valid(form)
 
 
-class DeleteArticleView(DeleteView):
+class DeleteArticleView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
     template_name="articles/article-delete.html"
     model=ArticleForm
     success_url='/'
