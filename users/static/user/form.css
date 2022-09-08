@@ -9,15 +9,15 @@ body {
 }
 
 main {
-    width: 90%;
-    max-width: 60rem;
+    width: 80%;
+    max-width: 50rem;
     margin: 2rem auto;
     background-color: white;
     padding: 1rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     display: flex;
-    height: 80vh;
+    height: 60vh;
     justify-content: center;
     align-items: center;
 }
@@ -71,10 +71,11 @@ main {
 } */
 
 #form_section h4 {
-    font-size: 2.0rem;
-    margin: 0 0 0 2rem;
+    font-size: 1.5rem;
+    margin: auto;
     color: #4926e7;
-    width: 10rem;
+    text-align: center;
+    width: 12rem;
 }
 
 #form_section p {

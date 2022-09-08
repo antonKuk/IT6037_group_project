@@ -11,7 +11,7 @@ Home
 
 {% block content %}
     <section id="main-section">
-      <h1>List of Articles</h1>
+      <h3 class="text-center">List of Articles</h3>
       <div class="container">
         {% for article in articles %}
           <div class="row article-container">
@@ -20,14 +20,12 @@ Home
                 {% comment %} {% if article.slug|stringformat:'s' != 'None' %}
                   <div class="h3">{{ article.slug }}</div>
                 {% endif %} {% endcomment %}
+
                 <dl class="row">
-                  {% if article.designed_by|stringformat:'s' != 'None' %}
-                    <dt class="col-sm-3">Article Name</dt>
+                  {% if article.article_name|stringformat:'s' != 'None' %}
+                    <dt class="col-sm-3">Article</dt>
                     <dd class="col-sm-9">{{ article.article_name }}</dd>
                   {% endif %}
-
-                </dl>
-                <dl class="row">
                   {% if article.designed_by|stringformat:'s' != 'None' %}
                     <dt class="col-sm-3">Designed by</dt>
                     <dd class="col-sm-9">{{ article.designed_by }}</dd>
@@ -36,10 +34,10 @@ Home
                     <dt class="col-sm-3">Developer</dt>
                     <dd class="col-sm-9">{{ article.developer }}</dd>
                   {% endif %}
-                  {% if article.article_name|stringformat:'s' != 'None' %}
+                  {% comment %} {% if article.article_name|stringformat:'s' != 'None' %}
                     <dt class="col-sm-3"></dt>
                     <dd class="col-sm-9">{{ article.article_name }}</dd>
-                  {% endif %}
+                  {% endif %} {% endcomment %}
                   {% if article.born|stringformat:'s' != 'None' %}
                     {% if article.died|stringformat:'s' != 'None' %}
                       <dt class="col-sm-3">Lived from</dt>
