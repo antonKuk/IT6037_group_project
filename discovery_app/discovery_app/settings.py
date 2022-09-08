@@ -88,7 +88,7 @@ DATABASES = {
         'default': {
             'ENGINE': 'djongo',
             'NAME': 'Discovery_Database',
-            # 'ENFORCE_SCHEMA': False,
+             'ENFORCE_SCHEMA': False,
             # 'CLIENT': {
             #     'host': 'mongodb+srv://<username>:<password>@<atlas cluster>/<myFirstDatabase>?retryWrites=true&w=majority'
             # }  
