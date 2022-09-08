@@ -93,6 +93,7 @@ Home
          {% if user.is_authenticated %}
                 <div class="form-group mt-3">
                   <a class="article-data btn btn-outline-danger " href="{% url "delete-page" article.slug %}">Delete</a> 
+                  
                   <a class="article-data btn btn-outline-info" href="{% url "update-page" article.slug %}">Update</a>
               </div>
         {% endif %}
