@@ -9,6 +9,8 @@ from django.views.generic import ListView,DetailView,DeleteView,CreateView,Updat
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from .models import Article
 from .article_form import ArticleForm
+from .filters import ArticleFilter
+
 # from django.contrib.auth.decorators import login_required
 
 
@@ -38,10 +40,20 @@ class HomePageView(ListView):
     # ordering = ["-date"]
     context_object_name = "articles"
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        data = queryset[:20]
-        return data
+    # def get_queryset(self):
+    #     queryset = super().get_queryset()
+    #     data = queryset[:20]
+    #     return data
+    def get(self, request):
+      model = Article.objects.all()
+      myFilter = ArticleFilter(request.GET, queryset=model)
+      model = myFilter.qs 
+      context = {
+        "articles": model[:20],
+        "myFilter": myFilter
+      }
+      
+      return render(request, "articles/home.html", context)	
 
 class DetailArticlelView(LoginRequiredMixin,PermissionRequiredMixin, DetailView):
     permission_required = "articles.view_article"
@@ -97,6 +109,8 @@ class UpdateArticleView(LoginRequiredMixin,PermissionRequiredMixin, UpdateView):
     def form_valid(self,form):
       return super().form_valid(form)
 
+ 
+
 
 class DeleteArticleView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     permission_required = 'articles.delete_article'
@@ -111,3 +125,6 @@ class DeleteArticleView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
     # def test_func(self):
     #   article=self.get_object()
  
+
+
+        
