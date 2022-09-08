@@ -111,5 +111,3 @@ class DeleteArticleView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
     # def test_func(self):
     #   article=self.get_object()
  
-
-
