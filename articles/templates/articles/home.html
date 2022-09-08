@@ -17,16 +17,20 @@ Home
           <div class="row article-container">
             <a class="article-data" href="">
               <article class="article-row">
-                {% if article.slug|stringformat:'s' != 'None' %}
+                {% comment %} {% if article.slug|stringformat:'s' != 'None' %}
                   <div class="h3">{{ article.slug }}</div>
-                {% endif %}
-                {% if article.name|stringformat:'s' != 'None' %}
-                  <div class="h3">{{ article.name }}</div>
-                {% endif %}
+                {% endif %} {% endcomment %}
                 <dl class="row">
                   {% if article.designed_by|stringformat:'s' != 'None' %}
-                    <dt class="col-sm-6">Designed by</dt>
-                    <dd class="col-sm-6">{{ article.designed_by }}</dd>
+                    <dt class="col-sm-3">Article Name</dt>
+                    <dd class="col-sm-9">{{ article.article_name }}</dd>
+                  {% endif %}
+
+                </dl>
+                <dl class="row">
+                  {% if article.designed_by|stringformat:'s' != 'None' %}
+                    <dt class="col-sm-3">Designed by</dt>
+                    <dd class="col-sm-9">{{ article.designed_by }}</dd>
                   {% endif %}
                   {% if article.developer|stringformat:'s' != 'None' %}
                     <dt class="col-sm-3">Developer</dt>
