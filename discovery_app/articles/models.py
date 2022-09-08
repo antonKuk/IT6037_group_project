@@ -1,7 +1,7 @@
 from django.utils.text import slugify
 from pickle import TRUE
 from django.db import models
-from django.core.validators import MinLengthValidator
+from django.core.validators import MaxValueValidator, MinLengthValidator
 from django.urls import reverse
 
 '''Article Model'''
@@ -51,14 +51,19 @@ class Article(models.Model):
     dimensions = models.CharField(max_length=40, blank=True)
     about = models.TextField(validators=[MinLengthValidator(10)])
 #     image = models.ImageField(upload_to="posts", null=True)
-    date_born = models.DateField(blank=True)
-    date_died = models.DateField(blank=True)
+    # date_born = models.DateField(blank=True)
+    # date_died = models.DateField(blank=True)
+    date_born = models.PositiveSmallIntegerField(null=True, blank=True, validators=[MaxValueValidator(2022)])
+    date_died = models.PositiveSmallIntegerField(null=True, blank=True, validators=[MaxValueValidator(2022)])
+
     nationality = models.CharField(max_length=150, blank=True)
     known_for = models.CharField(max_length=255, blank=True)
     notable_work = models.CharField(max_length=255, blank=True)
     location = models.CharField(max_length=100, blank=True)
     medium = models.CharField(max_length=150, blank=True)
-    year = models.DateField(null=True)
+    # year = models.DateField(null=True)
+    year = models.PositiveSmallIntegerField(null=True, blank=True, validators=[MaxValueValidator(2022)])
+
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, related_name="category")
     type = models.ForeignKey(

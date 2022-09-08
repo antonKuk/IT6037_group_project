@@ -6,9 +6,11 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.views import View
 from django.views.generic import ListView,DetailView,DeleteView,CreateView,UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin, PermissionRequiredMixin
 from .models import Article
 from .article_form import ArticleForm
+# from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -29,7 +31,7 @@ from .article_form import ArticleForm
 #         )
 #         return object_list
 
-
+# @login_required(login_url="/accounts/login")
 class HomePageView(ListView):
     template_name = "articles/home.html"
     model = Article
@@ -41,7 +43,9 @@ class HomePageView(ListView):
         data = queryset[:20]
         return data
 
-class DetailArticlelView(LoginRequiredMixin, DetailView):
+class DetailArticlelView(LoginRequiredMixin,PermissionRequiredMixin, DetailView):
+    permission_required = "articles.view_article"
+    template_name = '/article_detail.html'
     model = Article
     template_name="articles/article-detail.html"
     form_class = ArticleForm
@@ -56,8 +60,8 @@ class DetailArticlelView(LoginRequiredMixin, DetailView):
     #   print(form.cleaned_data)
     #   return super().form_valid(form)
 
-class CreateArticleView(LoginRequiredMixin, CreateView):
-
+class CreateArticleView(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+    permission_required = "articles.add_article"
     def get(self, request):
         context = {
           "article_form": ArticleForm(),
@@ -80,7 +84,8 @@ class CreateArticleView(LoginRequiredMixin, CreateView):
 
 
 
-class UpdateArticleView(LoginRequiredMixin, UpdateView):
+class UpdateArticleView(LoginRequiredMixin,PermissionRequiredMixin, UpdateView):
+    permission_required = 'articles.change_article'
     template_name="articles/article-update.html"
     form_class = ArticleForm
     queryset=Article.objects.all()
@@ -93,7 +98,8 @@ class UpdateArticleView(LoginRequiredMixin, UpdateView):
       return super().form_valid(form)
 
 
-class DeleteArticleView(LoginRequiredMixin, DeleteView):
+class DeleteArticleView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    permission_required = 'articles.delete_article'
     template_name="articles/article-delete.html"
     model=ArticleForm
     success_url='/'
@@ -105,5 +111,3 @@ class DeleteArticleView(LoginRequiredMixin, DeleteView):
     # def test_func(self):
     #   article=self.get_object()
  
-
-
