@@ -12,6 +12,17 @@ Home
 
 {% block content %}
   {% if user.is_authenticated %}
+
+  <div class="card card-body">
+
+    <form method="get">
+      {{myFilter.form}}
+
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+
+  </div>
+
     <section id="main-section">
       <h1>List of Articles</h1>
       <div class="container">
