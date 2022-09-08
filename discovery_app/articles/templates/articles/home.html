@@ -38,8 +38,8 @@ Home
                     <dt class="col-sm-3"></dt>
                     <dd class="col-sm-9">{{ article.article_name }}</dd>
                   {% endif %}
-                  {% if article.born|stringformat:'s' != 'None' %}
-                    {% if article.died|stringformat:'s' != 'None' %}
+                  {% if article.born|stringformat:'s' != null %}
+                    {% if article.died|stringformat:'s' != null %}
                       <dt class="col-sm-3">Lived from</dt>
                       <dd class="col-sm-9">{{ article.born }} to {{ article.died }}</dd>
                     {% else %}
@@ -71,7 +71,7 @@ Home
                     <dt class="col-sm-3">Medium</dt>
                     <dd class="col-sm-9">{{ article.medium }}</dd>
                   {% endif %}
-                  {% if article.year|stringformat:'s' != 'None' %}
+                  {% if article.year|stringformat:'s' != null %}
                     <dt class="col-sm-3">Year</dt>
                     <dd class="col-sm-9">{{ article.year }}</dd>
                   {% endif %}
