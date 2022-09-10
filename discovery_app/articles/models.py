@@ -53,8 +53,8 @@ class Article(models.Model):
 #     image = models.ImageField(upload_to="posts", null=True)
     # date_born = models.DateField(blank=True)
     # date_died = models.DateField(blank=True)
-    date_born = models.CharField(max_length=40, blank=True)
-    date_died = models.CharField(max_length=40, blank=True)
+    date_born = models.CharField(max_length=40, blank=True, null=True)
+    date_died = models.CharField(max_length=40, blank=True, null=True)
 
     nationality = models.CharField(max_length=150, blank=True)
     known_for = models.CharField(max_length=255, blank=True)
@@ -62,7 +62,7 @@ class Article(models.Model):
     location = models.CharField(max_length=100, blank=True)
     medium = models.CharField(max_length=150, blank=True)
     # year = models.DateField(null=True)
-    year = models.CharField(max_length=40, blank=True)
+    year = models.CharField(max_length=40, blank=True, null=True)
 
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, related_name="category")
