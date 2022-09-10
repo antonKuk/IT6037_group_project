@@ -30,22 +30,22 @@ Home
           <div class="row article-container">
             <a class="article-data" href="">
               <article class="article-row">
-                {% if article.slug|stringformat:'s' != 'None' %}
+                {% if article.slug|stringformat:'s' != '' %}
                   <div class="h3">{{ article.slug }}</div>
                 {% endif %}
-                {% if article.name|stringformat:'s' != 'None' %}
+                {% if article.name|stringformat:'s' != '' %}
                   <div class="h3">{{ article.name }}</div>
                 {% endif %}
                 <dl class="row">
-                  {% if article.designed_by|stringformat:'s' != 'None' %}
+                  {% if article.designed_by|stringformat:'s' != '' %}
                     <dt class="col-sm-6">Designed by</dt>
                     <dd class="col-sm-6">{{ article.designed_by }}</dd>
                   {% endif %}
-                  {% if article.developer|stringformat:'s' != 'None' %}
+                  {% if article.developer|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Developer</dt>
                     <dd class="col-sm-9">{{ article.developer }}</dd>
                   {% endif %}
-                  {% if article.article_name|stringformat:'s' != 'None' %}
+                  {% if article.article_name|stringformat:'s' != '' %}
                     <dt class="col-sm-3"></dt>
                     <dd class="col-sm-9">{{ article.article_name }}</dd>
                   {% endif %}
@@ -58,27 +58,27 @@ Home
                       <dd class="col-sm-9">{{ article.born }}</dd>
                     {% endif %}
                   {% endif %}
-                  {% if article.nationality|stringformat:'s' != 'None' %}
+                  {% if article.nationality|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Nationality</dt>
                     <dd class="col-sm-9">{{ article.nationality }}</dd>
                   {% endif %}
-                  {% if article.dimensions|stringformat:'s' != 'None' %}
+                  {% if article.dimensions|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Dimensions</dt>
                     <dd class="col-sm-9">{{ article.dimensions }}</dd>
                   {% endif %}
-                  {% if article.known_for|stringformat:'s' != 'None' %}
+                  {% if article.known_for|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Known for</dt>
                     <dd class="col-sm-9">{{ article.known_for }}</dd>
                   {% endif %}
-                  {% if article.notable_work|stringformat:'s' != 'None' %}
+                  {% if article.notable_work|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Notable work</dt>
                     <dd class="col-sm-9">{{ article.notable_work }}</dd>
                   {% endif %}
-                  {% if article.location|stringformat:'s' != 'None' %}
+                  {% if article.location|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Location</dt>
                     <dd class="col-sm-9">{{ article.location }}</dd>
                   {% endif %}
-                  {% if article.medium|stringformat:'s' != 'None' %}
+                  {% if article.medium|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Medium</dt>
                     <dd class="col-sm-9">{{ article.medium }}</dd>
                   {% endif %}
@@ -86,16 +86,16 @@ Home
                     <dt class="col-sm-3">Year</dt>
                     <dd class="col-sm-9">{{ article.year }}</dd>
                   {% endif %}
-                  {% if article.category|stringformat:'s' != 'None' %}
+                  {% if article.category|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Category</dt>
                     <dd class="col-sm-9">{{ article.category }}</dd>
                   {% endif %}
-                  {% if article.type|stringformat:'s' != 'None' %}
+                  {% if article.type|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Type</dt>
                     <dd class="col-sm-9">{{ article.type }}</dd>
                   {% endif %}
                 </dl>
-                {% if article.about|stringformat:'s' != 'None' %}
+                {% if article.about|stringformat:'s' != '' %}
                   <div class="">{{ article.about }}</div>
                 {% endif %}
                 <div class="form-group mt-3">
