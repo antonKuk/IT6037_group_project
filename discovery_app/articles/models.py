@@ -22,7 +22,7 @@ from django.urls import reverse
 
 #     def get_absolute_url(self):
 #         return reverse("home-page")
-        
+
 
 #     def save(self, *args, **kwargs):
 #             self.slug = slugify(self.article_name)
@@ -30,17 +30,17 @@ from django.urls import reverse
 
 
 class Category(models.Model):
-    category_name=models.CharField(max_length=150) 
+    category_name = models.CharField(max_length=150)
 
     def __str__(self):
-        return self.category_name      
+        return self.category_name
 
 
 class Type(models.Model):
-    type_name=models.CharField(max_length=150)
+    type_name = models.CharField(max_length=150)
 
     def __str__(self):
-        return self.type_name  
+        return self.type_name
 
 
 class Article(models.Model):
@@ -53,8 +53,8 @@ class Article(models.Model):
 #     image = models.ImageField(upload_to="posts", null=True)
     # date_born = models.DateField(blank=True)
     # date_died = models.DateField(blank=True)
-    date_born = models.PositiveSmallIntegerField(null=True, blank=True, validators=[MaxValueValidator(2022)])
-    date_died = models.PositiveSmallIntegerField(null=True, blank=True, validators=[MaxValueValidator(2022)])
+    date_born = models.CharField(max_length=40, blank=True)
+    date_died = models.CharField(max_length=40, blank=True)
 
     nationality = models.CharField(max_length=150, blank=True)
     known_for = models.CharField(max_length=255, blank=True)
@@ -62,7 +62,7 @@ class Article(models.Model):
     location = models.CharField(max_length=100, blank=True)
     medium = models.CharField(max_length=150, blank=True)
     # year = models.DateField(null=True)
-    year = models.PositiveSmallIntegerField(null=True, blank=True, validators=[MaxValueValidator(2022)])
+    year = models.CharField(max_length=40, blank=True)
 
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, related_name="category")
@@ -70,11 +70,11 @@ class Article(models.Model):
         Type, on_delete=models.SET_NULL, null=True, related_name="type")
 
     def __str__(self):
-        return self.article_name 
+        return self.article_name
 
     def get_absolute_url(self):
         return reverse("home-page")
-        
+
     def save(self, *args, **kwargs):
-            self.slug = slugify(self.article_name)
-            super(Article,self).save(*args, **kwargs)
+        self.slug = slugify(self.article_name)
+        super(Article, self).save(*args, **kwargs)
