@@ -30,32 +30,25 @@ Home
           <div class="row article-container">
             <a class="article-data" href="">
               <article class="article-row">
-                {% if article.slug|stringformat:'s' != '' %}
-                  <div class="h3">{{ article.slug }}</div>
-                {% endif %}
-                {% if article.name|stringformat:'s' != '' %}
-                  <div class="h3">{{ article.name }}</div>
+                {% if article.article_name|stringformat:'s' != '' %}
+                  <div class="h3">{{ article.article_name }}</div>
                 {% endif %}
                 <dl class="row">
                   {% if article.designed_by|stringformat:'s' != '' %}
-                    <dt class="col-sm-6">Designed by</dt>
-                    <dd class="col-sm-6">{{ article.designed_by }}</dd>
+                    <dt class="col-sm-3">Designed by</dt>
+                    <dd class="col-sm-9">{{ article.designed_by }}</dd>
                   {% endif %}
                   {% if article.developer|stringformat:'s' != '' %}
                     <dt class="col-sm-3">Developer</dt>
                     <dd class="col-sm-9">{{ article.developer }}</dd>
                   {% endif %}
-                  {% if article.article_name|stringformat:'s' != '' %}
-                    <dt class="col-sm-3"></dt>
-                    <dd class="col-sm-9">{{ article.article_name }}</dd>
-                  {% endif %}
-                  {% if article.date_born != NULL %}
+                  {% if article.date_born != null %}
                     {% if article.date_died != null %}
                       <dt class="col-sm-3">Lived from</dt>
                       <dd class="col-sm-9">{{ article.date_born }} to {{ article.date_died }}</dd>
                     {% else %}
                       <dt class="col-sm-3">Born in</dt>
-                      <dd class="col-sm-9">{{ article.born }}</dd>
+                      <dd class="col-sm-9">{{ article.date_born }}</dd>
                     {% endif %}
                   {% endif %}
                   {% if article.nationality|stringformat:'s' != '' %}
