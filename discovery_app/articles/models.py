@@ -62,7 +62,7 @@ class Article(models.Model):
     location = models.CharField(max_length=100, blank=True)
     medium = models.CharField(max_length=150, blank=True)
     # year = models.DateField(null=True)
-    year = models.CharField(max_length=40, blank=True, null=True)
+    year = models.CharField(max_length=40, blank=True)
 
     category = models.ForeignKey(
         Category, on_delete=models.SET_NULL, null=True, related_name="category")
