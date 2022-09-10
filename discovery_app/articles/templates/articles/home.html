@@ -49,10 +49,10 @@ Home
                     <dt class="col-sm-3"></dt>
                     <dd class="col-sm-9">{{ article.article_name }}</dd>
                   {% endif %}
-                  {% if article.born|stringformat:'s' != null %}
-                    {% if article.died|stringformat:'s' != null %}
+                  {% if article.born|stringformat:'s' != "" %}
+                    {% if article.died|stringformat:'s' != "" %}
                       <dt class="col-sm-3">Lived from</dt>
-                      <dd class="col-sm-9">{{ article.born }} to {{ article.died }}</dd>
+                      <dd class="col-sm-9">{{ article.date_born }} to {{ article.date_died }}</dd>
                     {% else %}
                       <dt class="col-sm-3">Born in</dt>
                       <dd class="col-sm-9">{{ article.born }}</dd>
@@ -108,6 +108,6 @@ Home
         {% endfor %}
       </div>
     </section>
-  {% else %}
+  {% comment %} {% else %} {% endcomment %}
   {% endif %}
-{% endblock %}
+{% endblock content %}
